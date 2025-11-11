@@ -1,0 +1,58 @@
+{
+  "name": "export-service",
+  "version": "1.0.0",
+  "description": "Unified export service for payment gateway and e-wallet data",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "prod": "node dist/start.js",
+    "build": "tsc",
+    "dev": "node --loader ts-node/esm ./node_modules/moleculer/bin/moleculer-runner.js --repl --config configs/moleculer.config.ts --envfile .run.local.env start.ts",
+    "uat": "node --loader ts-node/esm ./node_modules/moleculer/bin/moleculer-runner.js --repl --config configs/moleculer.config.ts --envfile .run.uat.env start.ts",
+    "local": "NODE_ENV=development ts-node --esm start.ts",
+    "start": "node dist/start.js",
+    "migrate": "ts-node scripts/migration.ts",
+    "seed": "ts-node scripts/seed.ts"
+  },
+  "keywords": [
+    "export",
+    "excel",
+    "mariadb",
+    "moleculer"
+  ],
+  "author": "Goopay",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "goopay-library": "file:../package",
+    "ioredis": "^4.14.1",
+    "lodash": "^4.17.21",
+    "moleculer": "0.14.33",
+    "moment": "^2.29.4",
+    "mongoose": "^8.7.0",
+    "mysql2": "^3.6.0",
+    "nats": "^2.4.0",
+    "redis": "^4.6.5",
+    "sequelize": "^6.32.1",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/eslint": "^9.6.1",
+    "@types/ioredis": "^4.28.10",
+    "@types/lodash": "^4.17.20",
+    "@types/moment": "^2.11.29",
+    "@types/mongoose": "^5.11.96",
+    "@types/redis": "^4.0.10",
+    "@types/sequelize": "^4.28.20",
+    "@types/uuid": "^10.0.0",
+    "@types/winston": "^2.4.4",
+    "eslint": "^8.52.0",
+    "moleculer-repl": "^0.6.6",
+    "moleculer-web": "^0.10.7",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">= 20.x.x"
+  }
+}
